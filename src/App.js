@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import ResolutionList from "./components/ResolutionList";
+// import ResolutionData from "./data/ResolutionData";
+import ResolutionForm from "./components/ResolutionForm";
+import NextPage from "./pages/NextPage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ResolutionProvider } from "./context/ResolutionContext";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ResolutionProvider>
+      <Router>
+        <div className="main-container">
+          <Header />
+          <div className="card-container">
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <>
+                    <ResolutionForm />
+                    <ResolutionList />
+                  </>
+                }
+              ></Route>
+              <Route path="/next" element={<NextPage />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </ResolutionProvider>
   );
 }
 

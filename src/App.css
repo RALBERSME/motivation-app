@@ -1,38 +1,210 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #8bdbe1;
+  color: #4712c2;
+}
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+}
+.header-container {
+  display: flex;
+  height: 60vh;
+  margin: 5px;
+  padding: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-ol {
+  margin-top: 5px;
+  margin-left: 35px;
+  list-style-type: lower-roman;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-ol li {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.header-ol li:last-of-type {
+  cursor: pointer;
+}
+.link {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  color: #4712c2;
+}
+.header-ol li:last-of-type:hover,
+.link:hover {
+  color: #fffdb5;
+}
+.card-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+}
+.card {
+  background-color: #fffdb5;
+  color: black;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 5%;
+  border: 3px solid #4712c2;
+  border-radius: 5px;
+  width: 90%;
+  text-align: center;
+}
+.answer {
+  color: #4712c2;
+}
+#submitBtn {
+  margin-top: 5px;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  width: 90%;
+  color: #4712c2;
+  border: 1px solid #4712c2;
+  border-radius: 5px;
+  background-color: #8bdbe1;
+}
+.edit {
+  margin-top: 5px;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background-color: rgb(133, 201, 32);
+  color: black;
+  border: 1px solid rgb(133, 201, 32);
+  border-radius: 5px;
+}
+#closeBtn {
+  margin-top: 5px;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background-color: orangered;
+  color: #fff;
+  border: 1px solid orangered;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-primary {
+  background-color: #202142;
+}
+
+.btn-secondary {
+  background: orangered;
+}
+
+#form {
+  position: absolute;
+  left: -75%;
+  bottom: 10px;
+  background-color: #6b92c9;
+  width: 75%;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.input {
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  color: black;
+  width: 400px;
+  height: 40px;
+  cursor: pointer;
+  padding-left: 5px;
+  text-align: center;
+}
+.score {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.scoreQ1,
+.scoreQ2 {
+  border: 0;
+  border-radius: 5px;
+  color: black;
+  width: 180px;
+  height: 40px;
+  cursor: pointer;
+  padding-left: 5px;
+  text-align: center;
+}
+.scoreI {
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  color: black;
+  width: 73px;
+  height: 40px;
+  cursor: pointer;
+  padding-left: 5px;
+  text-align: center;
+}
+h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.message {
+  color: red;
+  font-size: 1rem;
+  background-color: #fffdb5;
+  width: 50%;
+  margin: 8px auto;
+  border-radius: 5px;
+}
+
+/* NextPage */
+
+.header-ol {
+  margin-top: 20px;
+  margin-left: 35px;
+  list-style-type: lower-roman;
+  font-weight: bold;
+}
+
+ul li {
+  margin-top: 5px;
+  padding: 5px;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+}
+
+ul li:hover {
+  color: #4712c2;
 }
