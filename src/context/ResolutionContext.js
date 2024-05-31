@@ -5,6 +5,7 @@ const ResolutionContext = createContext();
 export const ResolutionProvider = ({ children }) => {
   // const [isLoading, setIsLoading] = useState(true);
   const [resolution, setResolution] = useState([
+    /*if fetch is used then this array is just empty [] */
     {
       id: 1,
       nickname: "Leo",
