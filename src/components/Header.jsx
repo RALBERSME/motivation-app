@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <div className="header-container">
-        <h1>Motivation App</h1>
+        <h1>Reinhild`s Motivation App</h1>
         <ol className="header-ol">
           <li>Have a plan</li>
           <li> Decide wisely - not too many resolutions</li>
