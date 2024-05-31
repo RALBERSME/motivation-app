@@ -1,9 +1,9 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 const ResolutionContext = createContext();
 
 export const ResolutionProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [resolution, setResolution] = useState([
     // {
     //   id: 1,
@@ -35,38 +35,79 @@ export const ResolutionProvider = ({ children }) => {
     edit: false,
   });
 
-  useEffect(() => {
-    fetchResolution();
-  }, []);
+  /*all with fetching data from server*/
+  // useEffect(() => {
+  //   fetchResolution();
+  // }, []);
 
+  // //fetch resolution
+  // const fetchResolution = async () => {
+  //   const response = await fetch(`/resolution?_sort=id&_order=desc`);
+  //   const data = await response.json();
+
+  //   setResolution(data);
+  //   setIsLoading(false);
+  // };
+  // //delete resolution
+  // const deleteResolution = async (id) => {
+  //   if (window.confirm("Do you really want to delete your resolution?")) {
+  //     await fetch(`/resolution/${id}`, { method: "DELETE" });
+  //     setResolution(resolution.filter((item) => item.id !== id));
+  //   }
+  // };
+
+  // //add resolution
+  // const addResolution = async (newResolution) => {
+  //   const response = await fetch("/resolution", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(newResolution),
+  //   });
+
+  //   const data = await response.json();
+  //   setResolution([data, ...resolution]);
+  // };
+
+  // //edit resolution item
+  // const editResolution = (item) => {
+  //   setResolutionEdit({
+  //     item,
+  //     edit: true,
+  //   });
+  // };
+
+  // // update resolution item
+  // const updateResolution = async (id, updItem) => {
+  //   const response = await fetch(`/resolution/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(updItem),
+  //   });
+
+  //   const data = await response.json();
+
+  //   setResolution(
+  //     resolution.map((item) => (item.id === id ? { ...item, ...data } : item))
+  //   );
+  // };
+
+  /* all without a server, getting the data from file */
   //fetch resolution
-  const fetchResolution = async () => {
-    const response = await fetch(`/resolution?_sort=id&_order=desc`);
-    const data = await response.json();
 
-    setResolution(data);
-    setIsLoading(false);
-  };
   //delete resolution
-  const deleteResolution = async (id) => {
+  const deleteResolution = (id) => {
     if (window.confirm("Do you really want to delete your resolution?")) {
-      await fetch(`/resolution/${id}`, { method: "DELETE" });
       setResolution(resolution.filter((item) => item.id !== id));
     }
   };
 
   //add resolution
-  const addResolution = async (newResolution) => {
-    const response = await fetch("/resolution", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newResolution),
-    });
-
-    const data = await response.json();
-    setResolution([data, ...resolution]);
+  const addResolution = (newResolution) => {
+    setResolution([newResolution, ...resolution]);
   };
 
   //edit resolution item
@@ -79,18 +120,10 @@ export const ResolutionProvider = ({ children }) => {
 
   // update resolution item
   const updateResolution = async (id, updItem) => {
-    const response = await fetch(`/resolution/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updItem),
-    });
-
-    const data = await response.json();
-
     setResolution(
-      resolution.map((item) => (item.id === id ? { ...item, ...data } : item))
+      resolution.map((item) =>
+        item.id === id ? { ...item, ...updItem } : item
+      )
     );
   };
   return (
@@ -98,7 +131,7 @@ export const ResolutionProvider = ({ children }) => {
       value={{
         resolution,
         resolutionEdit,
-        isLoading,
+        // isLoading,
         deleteResolution,
         addResolution,
         editResolution,
