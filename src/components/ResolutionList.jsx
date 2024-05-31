@@ -3,13 +3,15 @@ import ResolutionItem from "./ResolutionItem";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import ResolutionContext from "../context/ResolutionContext";
-
+import Spinner from "../shared/Spinner";
 function ResolutionList() {
-  const { resolution } = useContext(ResolutionContext);
-  if (!resolution || resolution.length === 0) {
+  const { resolution, isLoading } = useContext(ResolutionContext);
+  if (!isLoading && (!resolution || resolution.length === 0)) {
     return <p>Please enter resolution and submit.</p>;
   }
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <div className="resolution-list">
       {resolution.map((item) => {
         return <ResolutionItem key={item.id} item={item} />;
